@@ -26,11 +26,34 @@ window.onscroll = () => {
                 document.querySelector('header nav a[href*=' + id + ']').classList.add('active');
             });
         };
-    });
+    })
+    /*================sticky navigation bar ===============*/
+
+    let header = document.querySelectorAll('header');
+
+    header.classList.toggle('sticky', window.scrollY > 100);
+
+    /*================remove toggle icon and navbar when click navbar ===============*/
 };
 
-/*================sticky navigation bar ===============*/
+/*================scroll reveal ===============*/
+ScrollReveal({
+    //reset:true,
+    distance:'80px',
+    duration:2000,
+    delay: 200
+});
 
-let header = document.querySelectorAll('header');
+ScrollReveal().reveal('.home-content, .heading' , {origin: 'top'});
+ScrollReveal().reveal('.home-img, .services-container, .portfolio-box, .contact form' , {origin: 'bottom'});
+ScrollReveal().reveal('.home-content h1, .about-img' , {origin: 'left'});
+ScrollReveal().reveal('.home-content p, .about-content' , {origin: 'right'});
 
-header.classList.toggle('sticky', window.scrollY > 100);
+/*================typed js ===============*/
+const typed = new Typed('.multiple-text', {
+    strings:['Full Stack Engineer', 'Blogger', 'Physicist'],
+    typeSpeed: 100,
+    backSpeed: 100,
+    backDelay:1000,
+    loop:true
+});
